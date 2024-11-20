@@ -73,7 +73,7 @@ Get details of a particular technique
 - The command below is used to show details of technique **T1053.005**:
 
 ```jsx
-Invoke-AtomicTest **T1053.005** -ShowDetailsBrief
+Invoke-AtomicTest T1053.005 -ShowDetailsBrief
 ```
 
 - Check/Get prerequisites of a technique
@@ -81,13 +81,13 @@ Invoke-AtomicTest **T1053.005** -ShowDetailsBrief
 To check the prerequisites needed to test  **T1053.005**, the command below is used:
 
 ```jsx
-Invoke-AtomicTest **T1053.005** -CheckPrereqs
+Invoke-AtomicTest T1053.005 -CheckPrereqs
 ```
 
 - There may be some prerequisites that are not met. We will satisfy them by running the following command:
 
 ```jsx
-Invoke-AtomicTest **T1053.005** -GetPrereqs
+Invoke-AtomicTest T1053.005 -GetPrereqs
 ```
 
 - Run the test for a particular technique
@@ -95,7 +95,7 @@ Invoke-AtomicTest **T1053.005** -GetPrereqs
 To run the test that emulates the **T1053.005** technique, the following command is used:
 
 ```jsx
-Invoke-AtomicTest **T1053.005**
+Invoke-AtomicTest T1053.005
 ```
 
 - Clean-up on completion of the test
@@ -103,7 +103,7 @@ Invoke-AtomicTest **T1053.005**
 After a test has been carried out, the changes made can be reverted with the following command. This command will clean-up test for **T1053.005**:
 
 ```jsx
-Invoke-AtomicTest **T1053.005** -Cleanup
+Invoke-AtomicTest T1053.005 -Cleanup
 ```
 
 # **Monitoring and Detection**:
@@ -129,7 +129,7 @@ Restart-Service -Name wazuh
 
 To generate alerts for the previously selected MITRE ATT&CK techniques, the following rules are added to the local_rules.xml file in the rules section on the Wazuh manager.
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/04cace58-755d-4c8b-9aa4-7044a0c11346/86e41797-7841-4b24-a9fb-ac2d52aa4e98/image.png)
+![local_ruls.png](screenshot/image.png)
 
 ```jsx
 <group name="windows,sysmon,">
@@ -148,19 +148,19 @@ To generate alerts for the previously selected MITRE ATT&CK techniques, the foll
 
 After we save the rules file, We restart the Wazuh manager so it starts using the new rules.
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/04cace58-755d-4c8b-9aa4-7044a0c11346/c2a22bfb-747d-42b6-8846-1755cb4d11e5/image.png)
+![restart_agent.png](screenshot/2image.png)
 
 # **Monitoring with Wazuh Dashboards:**
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/04cace58-755d-4c8b-9aa4-7044a0c11346/6865004a-d4ee-49c5-bf33-05bef51bd1d0/image.png)
+![simple_dashborad.png](screenshot/3image.png)
 
 The above image showcases our Wazuh dashboard for the specific endpoint. Since this is a fresh installation, it currently does not display extensive data.
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/04cace58-755d-4c8b-9aa4-7044a0c11346/8e4ed84d-6e14-4229-845f-3daff2e81ff4/image.png)
+![discover_section.png](screenshot/4image.png)
 
 Now we will go to Discover section and look for the alerts.
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/04cace58-755d-4c8b-9aa4-7044a0c11346/b1e84eb0-8aaa-4fda-8015-8b197b2df0ca/image.png)
+![alerts.png](screenshot/5image.png)
 
 The alert have been generated 
 
