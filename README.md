@@ -18,18 +18,10 @@ We are using wazuh docker deployment, so we will need to install Docker and Dock
 
 Install Docker:
 
-```jsx
-sudo apt install docker.io
-sudo apt install docker-compose
+For Docker installation, we will refer to this repository
+[Docker-install](https://github.com/penoughcyber/awesome-basics/tree/main/Docker)
 
-//use this command to check the version
-sudo docker --version 
-
-//use this command to check if your docker is running
-sudo systemctl status docker
-```
-
-**Changing tha vm.max_map_count value:**
+**Changing the vm.max_map_count value:**
 
 The default value of vm.max_map_count on many systems is 65536. Recommended setting it to at least 262144 to prevent out-of-memory exceptions.
 
