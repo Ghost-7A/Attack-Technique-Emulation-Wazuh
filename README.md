@@ -2,13 +2,18 @@
 A project showcasing attack technique emulation using MITRE ATT&amp;CK and detection with Wazuh, Sysmon, and Atomic Red Team.
 
 
+
+
 **Introduction**:
+
 This repository showcases the emulation of adversary tactics from the MITRE ATT&CK framework using Atomic Red Team and demonstrates how Wazuh can be configured to detect these threats effectively, with detailed monitoring provided by Sysmon.
 
 **Emulating ATT&CK Techniques**:
+
 Using Red Canary’s [Atomic Red Team](https://github.com/redcanaryco/invoke-atomicredteam), we emulate **T1053.005 – Scheduled Task/Job**, a common adversarial technique for automating malicious activities. This simulation demonstrates how Wazuh can monitor, detect, and alert on the creation and execution of potentially harmful scheduled tasks, providing a realistic assessment of our detection capabilities.
 
 **Setup and Installation Instructions**: 
+
 We are using wazuh docker deployment, so we will need to install Docker and Docker-Composer
 
 Install Docker:
@@ -25,6 +30,7 @@ sudo systemctl status docker
 ```
 
 **Changing tha vm.max_map_count value:**
+
 The default value of vm.max_map_count on many systems is 65536. Recommended setting it to at least 262144 to prevent out-of-memory exceptions.
 
 ```jsx
@@ -39,6 +45,7 @@ vm.max_map_count=262144
 ```
 
 # **Sysmon Configuration**
+
 Sysmon, a system monitoring tool from Microsoft Sysinternals, can be downloaded from the [official Sysinternals page](https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon). It is installed using a configuration file, **sysmonconfig.xml**, which maps Sysmon event monitoring to MITRE ATT&CK techniques.
 
 To install Sysmon with the configuration file via PowerShell, use the following command:
@@ -50,6 +57,7 @@ sysmon.exe -accepteula -i sysmonconfig.xml
 This command installs Sysmon and loads the specified configuration file to start monitoring system activities. Be sure to install Sysmon on the endpoint you wish to monitor for detailed event logging and analysis.
 
 # **Wazuh Docker Deployment**
+
 In this section, we will guide you through setting up Wazuh using Docker. For detailed instructions and configuration files, refer to my GitHub repository:
 
 🔗 [Wazuh Docker Deployment Repository](https://github.com/Ghost-7A/wazuh-docker-deployment.git)
@@ -66,7 +74,7 @@ We will implement this simulation on our designated victim endpoint.
 
 Get details of a particular technique
 
-- The command below is used to show details of technique **T1053.005**:
+- The command below is used to show details of technique T1053.005:
 
 ```jsx
 Invoke-AtomicTest T1053.005 -ShowDetailsBrief
@@ -74,7 +82,7 @@ Invoke-AtomicTest T1053.005 -ShowDetailsBrief
 
 - Check/Get prerequisites of a technique
 
-To check the prerequisites needed to test  **T1053.005**, the command below is used:
+To check the prerequisites needed to test  T1053.005, the command below is used:
 
 ```jsx
 Invoke-AtomicTest T1053.005 -CheckPrereqs
@@ -88,7 +96,7 @@ Invoke-AtomicTest T1053.005 -GetPrereqs
 
 - Run the test for a particular technique
 
-To run the test that emulates the **T1053.005** technique, the following command is used:
+To run the test that emulates the T1053.005 technique, the following command is used:
 
 ```jsx
 Invoke-AtomicTest T1053.005
@@ -96,7 +104,7 @@ Invoke-AtomicTest T1053.005
 
 - Clean-up on completion of the test
 
-After a test has been carried out, the changes made can be reverted with the following command. This command will clean-up test for **T1053.005**:
+After a test has been carried out, the changes made can be reverted with the following command. This command will clean-up test for T1053.005:
 
 ```jsx
 Invoke-AtomicTest T1053.005 -Cleanup
@@ -159,6 +167,10 @@ Now we will go to Discover section and look for the alerts.
 ![alerts.png](screenshot/5image.png)
 
 The alert have been generated 
+
+# **Conclusion:**
+
+In this project, we explored the emulation of MITRE ATT&CK techniques and the detection of these techniques using Wazuh, Sysmon, and Atomic Red Team. This journey provided valuable insights into the capabilities and challenges of modern threat detection mechanisms.
 
 # **Conclusion:**
 
