@@ -19,7 +19,7 @@ We are using wazuh docker deployment, so we will need to install Docker and Dock
 Install Docker:
 
 ```jsx
-sudo apt install [docker.io](http://docker.io/)
+sudo apt install docker.io
 sudo apt install docker-compose
 
 //use this command to check the version
@@ -167,10 +167,6 @@ Now we will go to Discover section and look for the alerts.
 ![alerts.png](screenshot/5image.png)
 
 The alert have been generated 
-
-# **Conclusion:**
-
-In this project, we explored the emulation of MITRE ATT&CK techniques and the detection of these techniques using Wazuh, Sysmon, and Atomic Red Team. This journey provided valuable insights into the capabilities and challenges of modern threat detection mechanisms.
 
 # **Conclusion:**
 
