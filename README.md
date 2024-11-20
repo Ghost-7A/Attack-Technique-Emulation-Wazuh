@@ -1,15 +1,14 @@
 # Attack-Technique-Emulation-Wazuh
 A project showcasing attack technique emulation using MITRE ATT&amp;CK and detection with Wazuh, Sysmon, and Atomic Red Team.
-**Introduction**:
 
+
+**Introduction**:
 This repository showcases the emulation of adversary tactics from the MITRE ATT&CK framework using Atomic Red Team and demonstrates how Wazuh can be configured to detect these threats effectively, with detailed monitoring provided by Sysmon.
 
 **Emulating ATT&CK Techniques**:
-
 Using Red Canary’s [Atomic Red Team](https://github.com/redcanaryco/invoke-atomicredteam), we emulate **T1053.005 – Scheduled Task/Job**, a common adversarial technique for automating malicious activities. This simulation demonstrates how Wazuh can monitor, detect, and alert on the creation and execution of potentially harmful scheduled tasks, providing a realistic assessment of our detection capabilities.
 
 **Setup and Installation Instructions**: 
-
 We are using wazuh docker deployment, so we will need to install Docker and Docker-Composer
 
 Install Docker:
@@ -26,7 +25,6 @@ sudo systemctl status docker
 ```
 
 **Changing tha vm.max_map_count value:**
-
 The default value of vm.max_map_count on many systems is 65536. Recommended setting it to at least 262144 to prevent out-of-memory exceptions.
 
 ```jsx
@@ -41,7 +39,6 @@ vm.max_map_count=262144
 ```
 
 # **Sysmon Configuration**
-
 Sysmon, a system monitoring tool from Microsoft Sysinternals, can be downloaded from the [official Sysinternals page](https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon). It is installed using a configuration file, **sysmonconfig.xml**, which maps Sysmon event monitoring to MITRE ATT&CK techniques.
 
 To install Sysmon with the configuration file via PowerShell, use the following command:
@@ -53,7 +50,6 @@ sysmon.exe -accepteula -i sysmonconfig.xml
 This command installs Sysmon and loads the specified configuration file to start monitoring system activities. Be sure to install Sysmon on the endpoint you wish to monitor for detailed event logging and analysis.
 
 # **Wazuh Docker Deployment**
-
 In this section, we will guide you through setting up Wazuh using Docker. For detailed instructions and configuration files, refer to my GitHub repository:
 
 🔗 [Wazuh Docker Deployment Repository](https://github.com/Ghost-7A/wazuh-docker-deployment.git)
