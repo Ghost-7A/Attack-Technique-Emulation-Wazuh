@@ -12,6 +12,8 @@ This repository showcases the emulation of adversary tactics from the MITRE ATT&
 
 Using Red Canary’s [Atomic Red Team](https://github.com/redcanaryco/invoke-atomicredteam), we emulate **T1053.005 – Scheduled Task/Job**, a common adversarial technique for automating malicious activities. This simulation demonstrates how Wazuh can monitor, detect, and alert on the creation and execution of potentially harmful scheduled tasks, providing a realistic assessment of our detection capabilities.
 
+
+
 **Setup and Installation Instructions**: 
 
 We are using wazuh docker deployment, so we will need to install Docker and Docker-Composer
@@ -20,6 +22,8 @@ Install Docker:
 
 For Docker installation, we will refer to this repository
 [Docker-install](https://github.com/penoughcyber/awesome-basics/tree/main/Docker)
+
+
 
 **Changing the vm.max_map_count value:**
 
